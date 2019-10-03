@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button, List } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 import tape from '../measuring-tape.png'
 
 class Welcome extends Component{
