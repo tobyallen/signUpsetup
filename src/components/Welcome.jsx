@@ -30,6 +30,7 @@ class Welcome extends Component{
                         value={values.trade}
                         onChange={this.props.handleChange('trade')}
                       >
+                        <option value="Builder">Pick a trade</option>
                         <option value="Builder">Builder</option>
                         <option value="Plumber">Plumber</option>
                         <option value="Electrician">Electrician</option>

@@ -5,9 +5,10 @@
   "dependencies": {
     "axios": "^0.19.0",
     "got": "^9.6.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-scripts": "3.1.0",
+    "now": "^16.3.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-scripts": "^3.2.0",
     "semantic-ui-react": "^0.87.3",
     "sendgrid": "^5.2.3"
   },
@@ -31,6 +32,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ],
-    "homepage": "https://conversationhandler-8959-dev.twil.io"
+    "homepage": "https://engageconversations-2498-dev.twil.io"
   }
 }

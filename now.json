@@ -1,0 +1,7 @@
+{
+    "build": {
+        "env": {
+            "REACT_APP_FUNCTIONS_URL": "https://engageconversations-2498-dev.twil.io/signUp"
+        }
+    }
+}

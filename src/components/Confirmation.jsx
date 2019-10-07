@@ -5,13 +5,11 @@ import axios from 'axios'
 class Confirmation extends Component{
 
   sendDetails = async(values) => {
-    console.log(values)
-
       let body = {
         'name': values.name,
-        'phone': values.phone,
+        'number': values.phone,
         'email': values.email,
-        'trade': values.trade
+        'info': values.trade
       };
 
       let config = {
@@ -21,7 +19,7 @@ class Confirmation extends Component{
       };
       console.log(body)
       const resp = await axios
-        .post('https://tobytes.ngrok.io/conversations/createFromForm',
+          .post(`${process.env.REACT_APP_FUNCTIONS_URL}/signUp`,
           body,
           config);
     console.log(resp);
