@@ -39,7 +39,7 @@ class VerifyPhone extends Component{
             </Form.Field>
             <p>{this.state.status}</p>
             <Button onClick={this.back}>Back</Button>
-            <Button primary onClick={ (e) => {
+            <Button onClick={ (e) => {
                     console.log(e)
                     this.saveAndContinue(e, values.phone, values.code)
                   }
