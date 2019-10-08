@@ -9,7 +9,8 @@ class Confirmation extends Component{
         'name': values.name,
         'number': values.phone,
         'email': values.email,
-        'info': values.trade
+        'brand': values.brand,
+        'bodyText': values.welcomeEmail
       };
 
       let config = {
@@ -19,7 +20,7 @@ class Confirmation extends Component{
       };
       console.log(body)
       const resp = await axios
-          .post(`${process.env.REACT_APP_FUNCTIONS_URL}/signUp`,
+          .post(`${process.env.REACT_APP_FUNCTIONS_URL}/QRsignUp`,
           body,
           config);
     console.log(resp);
@@ -48,7 +49,7 @@ class Confirmation extends Component{
         return(
             <div>
                 <h1 className="ui centered">Confirm your Details</h1>
-                <p>Click Confirm if the following details have been correctly entered</p>
+                <p>Click Confirm if the following details have been correctly entered.</p>
                 <List>
                     <List.Item>
                         <List.Icon name='users' />
@@ -63,10 +64,6 @@ class Confirmation extends Component{
                         <List.Content>
                             <a href='mailto:{email}'>Email: {values.email}</a>
                         </List.Content>
-                    </List.Item>
-                    <List.Item>
-                        <List.Icon name='wrench' />
-                        <List.Content>Trade:{values.trade}</List.Content>
                     </List.Item>
                 </List>
 

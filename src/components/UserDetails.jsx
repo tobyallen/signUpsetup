@@ -26,8 +26,8 @@ class UserDetails extends Component{
         const { values } = this.props;
         return(
             <Form >
-                <h1 className="ui centered">Enter Details</h1>
-                <p>First we're going to capture some information about you to help us serve you better.</p>
+                <h1 className="ui centered">{values.welcomeTitle}</h1>
+                <p>{values.welcomeText}</p>
                 <Form.Field>
                     <label>Name</label>
                     <input
@@ -44,8 +44,7 @@ class UserDetails extends Component{
                     defaultValue={values.phone}
                     />
                 </Form.Field>
-                <p>Clicking Verify Phone will send a one time code to your phone.</p>
-                <Button onClick={this.back}>Back</Button>
+                <p>Clicking Verify Phone will send a one time code to your phone. This helps us confirm you've entered your number correctly.</p>
                 <Button onClick={ (e) => {
                       this.saveAndContinue(e, values.phone)
                       }

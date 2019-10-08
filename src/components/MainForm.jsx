@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Welcome from './Welcome';
 import UserDetails from './UserDetails';
 import EmailCapture from './EmailCapture';
 import VerifyPhone from './VerifyPhone';
@@ -12,11 +11,27 @@ class MainForm extends Component {
         name: '',
         phone: '',
         email: '',
-        trade: '',
+        brand: '',
         verifyResp: '',
         verifyConfResp: '',
         emailResp: '',
-        code: ''
+        code: '',
+        welcomeTitle: '',
+        welcomeText: '',
+        welcomeEmail: ''
+    }
+
+    componentDidMount() {
+        const urlParams = new URLSearchParams(window.location.search);
+        this.setState({ 
+            ...this.state,
+            name: urlParams.get('name'),
+            brand: urlParams.get('brand'),
+            welcomeTitle: urlParams.get('welcomeTitle'),
+            welcomeText: urlParams.get('welcomeText'),
+            welcomeEmail: urlParams.get('welcomeEmail')
+        })
+        console.log(this.state);
     }
 
     nextStep = () => {
@@ -46,30 +61,25 @@ class MainForm extends Component {
 
     render(){
         const {step} = this.state;
-        const { name, phone, email, code, trade } = this.state;
-        const values = { name, phone, email, code, trade };
+        const { name, phone, email, code, brand, welcomeTitle, welcomeText, welcomeEmail } = this.state;
+        const values = { name, phone, email, code, brand, welcomeTitle, welcomeText, welcomeEmail };
+        console.log(values);
         switch(step) {
         case 1:
-              return <Welcome
-                      nextStep={this.nextStep}
-                      handleChange = {this.handleChange}
-                      values={values}
-                      />
-        case 2:
             return <UserDetails
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
                     handleChange = {this.handleChange}
                     values={values}
                     />
-        case 3:
+        case 2:
             return <VerifyPhone
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
                     handleChange = {this.handleChange}
                     values={values}
                     />
-        case 4:
+        case 3:
             return <EmailCapture
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
@@ -77,14 +87,16 @@ class MainForm extends Component {
                     handleEmail = {this.handleEmail}
                     values={values}
                     />
-        case 5:
+        case 4:
             return <Confirmation
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
                     values={values}
                     />
-        case 6:
-            return <Success />
+        case 5:
+            return <Success 
+                    values={values}
+                    />
         default:
             return <Success />
         }
